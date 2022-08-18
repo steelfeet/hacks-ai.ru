@@ -49,8 +49,9 @@ Score = 0.599295
 sample_yolov5x_1024_e20.csv  
 Score = 0.625110  
 
+
 дообучение: мой датасет + 10 эпох  
-!python ./yolov5/train.py --img 1024 --batch 4 --epochs 10 --data {path_to_data} --cfg ./yolov5/models/yolov5x.yaml --name yolov5x_results  --weights yolov5/runs/train/yolov5x_results6/weights/best.pt --cache  
+!python ./yolov5/train.py --img 1024 --batch 4 --epochs 10 --data {path_to_data} --cfg ./yolov5/models/yolov5x.yaml --name yolov5x_results  --weights yolov5/runs/train/yolov5x_results6/weights/best.pt --cache   
 my_yolov5x_1024_e20-10.csv  
 ---  
 не хватает ОЗУ на кеш картинок  
