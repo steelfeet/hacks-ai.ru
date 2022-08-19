@@ -49,7 +49,6 @@ Score = 0.599295
 sample_yolov5x_1024_e20.csv  
 Score = 0.625110  
 
-
 дообучение: мой датасет + 10 эпох  
 !python ./yolov5/train.py --img 1024 --batch 4 --epochs 10 --data {path_to_data} --cfg ./yolov5/models/yolov5x.yaml --name yolov5x_results  --weights yolov5/runs/train/yolov5x_results6/weights/best.pt --cache   
 my_yolov5x_1024_e20-10.csv  
@@ -57,6 +56,36 @@ my_yolov5x_1024_e20-10.csv
 не хватает ОЗУ на кеш картинок  
 - кеш  
 
+my_yolov5x_1024_e20-7
+обрыв, но процесс продолжался. скачиваю на всякий случай.
+
+my_yolov5x_1024_s_20_ds2_10
+Score = 0.623064
+
+
+data_for_yolo_3 - 2000 картинок, исправлены labels, сгенерированы валидационные. Попробуем загнать в кеш
+!python ./yolov5/train.py --img 1024 --batch 6 --epochs 10 --data {path_to_data} --cfg ./yolov5/models/yolov5x.yaml --name yolov5x_results  
+--weights yolov5/runs/train/yolov5x_results6/weights/best.pt --cache
+возвращаемся к лучшему
+my_yolov5x_1024_s_20_ds3_10
+
+ОЗУ 6.8 ГБ - впритык
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 28/28 [00:22<00:00,  1.23it/s]
+                 all        327        327      0.692      0.676      0.678      0.587
+                 car        327        167      0.927      0.987      0.991       0.95
+                head        327         62      0.725      0.468      0.498       0.36
+                face        327          7      0.142      0.143     0.0453     0.0248
+               human        327         50      0.741       0.86      0.908       0.83
+            carplate        327         41      0.927      0.923      0.947      0.771
+
+
+Не скачивается!
+Failed to fetch
+TypeError: Failed to fetch
+
+shutil.copyfile("yolov5/runs/train/yolov5x_results13/weights/best.pt", "/content/gdrive/MyDrive/my_yolov5x_1024_s_20_ds3_10.pt", follow_symlinks=True)
+
+Score = 0.628224
 
 
 
